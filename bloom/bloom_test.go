@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/fluhus/gostuff/bnry"
-	"github.com/fluhus/gostuff/gnum"
+	"github.com/osingaatje/gostuff/bnry"
+	"github.com/osingaatje/gostuff/gnum"
 )
 
 func TestLen(t *testing.T) {

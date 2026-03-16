@@ -6,8 +6,8 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/fluhus/gostuff/sets"
-	"github.com/fluhus/gostuff/snm"
+	"github.com/osingaatje/gostuff/sets"
+	"github.com/osingaatje/gostuff/snm"
 	"golang.org/x/exp/maps"
 )
 

@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/fluhus/gostuff/snm"
+	"github.com/osingaatje/gostuff/snm"
 )
 
 // RegexpFlagSet defines a regular expression flag with specified name,

@@ -7,7 +7,7 @@ import (
 	"hash"
 	"testing"
 
-	"github.com/fluhus/gostuff/sets"
+	"github.com/osingaatje/gostuff/sets"
 )
 
 // Runs the test suite for a hash64.

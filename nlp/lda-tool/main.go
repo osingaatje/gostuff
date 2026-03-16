@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/fluhus/gostuff/nlp"
+	"github.com/osingaatje/gostuff/nlp"
 	"golang.org/x/exp/maps"
 )
 

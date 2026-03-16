@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/fluhus/gostuff/iterx"
+	"github.com/osingaatje/gostuff/iterx"
 )
 
 func TestReader(t *testing.T) {

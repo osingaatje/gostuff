@@ -4,9 +4,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/fluhus/gostuff/gnum"
-	"github.com/fluhus/gostuff/morris"
-	"github.com/fluhus/gostuff/ptimer"
+	"github.com/osingaatje/gostuff/gnum"
+	"github.com/osingaatje/gostuff/morris"
+	"github.com/osingaatje/gostuff/ptimer"
 )
 
 const (

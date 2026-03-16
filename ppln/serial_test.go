@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fluhus/gostuff/gnum"
+	"github.com/osingaatje/gostuff/gnum"
 )
 
 func ExampleSerial() {

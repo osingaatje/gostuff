@@ -4,7 +4,7 @@ import (
 	"hash"
 	"testing"
 
-	"github.com/fluhus/gostuff/snm"
+	"github.com/osingaatje/gostuff/snm"
 )
 
 func FuzzBuz64(f *testing.F) {

@@ -7,7 +7,7 @@ import (
 	"io"
 	"iter"
 
-	"github.com/fluhus/gostuff/aio"
+	"github.com/osingaatje/gostuff/aio"
 )
 
 // LinesReader iterates over text lines from a reader.

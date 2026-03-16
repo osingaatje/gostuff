@@ -7,7 +7,7 @@ import (
 	"slices"
 	"sort"
 
-	"github.com/fluhus/gostuff/gnum"
+	"github.com/osingaatje/gostuff/gnum"
 	"golang.org/x/exp/constraints"
 	"golang.org/x/exp/maps"
 )

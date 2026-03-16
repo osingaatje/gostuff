@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/fluhus/gostuff/gnum"
-	"github.com/fluhus/gostuff/heaps"
+	"github.com/osingaatje/gostuff/gnum"
+	"github.com/osingaatje/gostuff/heaps"
 )
 
 // distPyramid is a distance half-matrix.

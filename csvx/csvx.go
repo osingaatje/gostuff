@@ -5,7 +5,7 @@ import (
 	"io"
 	"iter"
 
-	"github.com/fluhus/gostuff/aio"
+	"github.com/osingaatje/gostuff/aio"
 )
 
 // Reader iterates over CSV entries from a reader.

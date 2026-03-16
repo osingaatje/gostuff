@@ -71,7 +71,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/fluhus/gostuff/iterx"
+	"github.com/osingaatje/gostuff/iterx"
 )
 
 // TODO(amit): Add examples.

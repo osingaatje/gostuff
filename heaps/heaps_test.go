@@ -6,7 +6,7 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/fluhus/gostuff/snm"
+	"github.com/osingaatje/gostuff/snm"
 )
 
 func TestHeap(t *testing.T) {

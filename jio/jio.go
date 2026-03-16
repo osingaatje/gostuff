@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/fluhus/gostuff/aio"
+	"github.com/osingaatje/gostuff/aio"
 )
 
 // Write saves v to the given file, encoded as JSON.

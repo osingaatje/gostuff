@@ -3,8 +3,8 @@ package graphs
 import (
 	"iter"
 
-	"github.com/fluhus/gostuff/sets"
-	"github.com/fluhus/gostuff/snm"
+	"github.com/osingaatje/gostuff/sets"
+	"github.com/osingaatje/gostuff/snm"
 )
 
 // BFS iterates over this graph's nodes in a breadth-first ordering,

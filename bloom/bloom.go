@@ -8,7 +8,7 @@ import (
 	"math"
 	_ "unsafe"
 
-	"github.com/fluhus/gostuff/bnry"
+	"github.com/osingaatje/gostuff/bnry"
 	"github.com/spaolacci/murmur3"
 )
 

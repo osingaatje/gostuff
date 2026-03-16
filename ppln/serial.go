@@ -6,7 +6,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/fluhus/gostuff/heaps"
+	"github.com/osingaatje/gostuff/heaps"
 )
 
 // Serial starts a multi-goroutine transformation pipeline that maintains the

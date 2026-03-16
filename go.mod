@@ -1,4 +1,4 @@
-module github.com/fluhus/gostuff
+module github.com/osingaatje/gostuff
 
 go 1.24.0
 

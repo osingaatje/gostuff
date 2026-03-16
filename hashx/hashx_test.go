@@ -3,7 +3,7 @@ package hashx
 import (
 	"testing"
 
-	"github.com/fluhus/gostuff/sets"
+	"github.com/osingaatje/gostuff/sets"
 )
 
 func TestInt(t *testing.T) {

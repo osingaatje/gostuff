@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/fluhus/gostuff/hashx"
+	"github.com/osingaatje/gostuff/hashx"
 )
 
 func BenchmarkWrite1K(b *testing.B) {

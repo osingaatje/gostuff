@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/fluhus/gostuff/bnry"
+	"github.com/osingaatje/gostuff/bnry"
 	"github.com/spaolacci/murmur3"
 )
 

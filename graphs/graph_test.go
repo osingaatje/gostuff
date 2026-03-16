@@ -5,7 +5,7 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/fluhus/gostuff/snm"
+	"github.com/osingaatje/gostuff/snm"
 )
 
 func TestComponents(t *testing.T) {

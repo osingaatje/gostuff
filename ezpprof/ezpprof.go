@@ -23,7 +23,7 @@ import (
 	"io"
 	"runtime/pprof"
 
-	"github.com/fluhus/gostuff/aio"
+	"github.com/osingaatje/gostuff/aio"
 )
 
 var fout io.WriteCloser

@@ -6,7 +6,7 @@ import (
 	"math"
 	"math/rand"
 
-	"github.com/fluhus/gostuff/gnum"
+	"github.com/osingaatje/gostuff/gnum"
 )
 
 // Kmeans performs k-means clustering on the given data. Each vector is an

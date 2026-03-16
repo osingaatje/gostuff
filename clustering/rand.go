@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/fluhus/gostuff/sets"
+	"github.com/osingaatje/gostuff/sets"
 )
 
 // AdjustedRandIndex compares 2 taggings of the data for similarity. A score of
