@@ -67,26 +67,26 @@ func ParseFS(dir fs.FS, dirname string) (*WordNet, error) {
 	result := &WordNet{}
 	var err error
 
-	result.Example, err = parseExampleFile(dir)
+	result.Example, err = parseExampleFile(dir, dirname)
 	if err != nil {
 		// Older versions of the database don't have examples, so skipping if
 		// not found.
 		result.Example = map[string]string{}
 	}
 
-	examples, err := parseExampleIndexFile(dir)
+	examples, err := parseExampleIndexFile(dir, dirname)
 	if err != nil {
 		// Older versions of the database don't have examples, so skipping if
 		// not found.
 		examples = map[string][]int{}
 	}
 
-	result.Synset, err = parseDataFiles(dir, examples)
+	result.Synset, err = parseDataFiles(dir, dirname, examples)
 	if err != nil {
 		return nil, err
 	}
 
-	result.Exception, err = parseExceptionFiles(dir)
+	result.Exception, err = parseExceptionFiles(dir, dirname)
 	if err != nil {
 		// Older versions of the database don't have exceptions, so skipping if
 		// not found.
@@ -95,7 +95,7 @@ func ParseFS(dir fs.FS, dirname string) (*WordNet, error) {
 
 	result.indexLemma()
 
-	result.LemmaRanked, err = parseIndexFiles(dir)
+	result.LemmaRanked, err = parseIndexFiles(dir, dirname)
 	if err != nil {
 		return nil, err
 	}

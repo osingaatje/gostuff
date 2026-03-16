@@ -39,12 +39,12 @@ var (
 // ----- LEMMA INDEX PARSING --------------------------------------------------
 
 // Parses the index files.
-func parseIndexFiles(dir fs.FS) (map[string][]string, error) {
+func parseIndexFiles(dir fs.FS, dirname string) (map[string][]string, error) {
 	result := map[string][]string{}
 
 	for _, file := range indexFiles {
 		// Read index file.
-		f, err := dir.Open(file)
+		f, err := openFile(dir, dirname, file)
 		if err != nil {
 			return nil, fmt.Errorf("%v: %v", file, err)
 		}
