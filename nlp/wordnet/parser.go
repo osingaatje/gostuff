@@ -151,8 +151,8 @@ func parseIndexLine(line string) (*indexLine, error) {
 // ----- VERB EXAMPLE PARSING -------------------------------------------------
 
 // Parses the verb example file.
-func parseExampleFile(dir fs.FS) (map[string]string, error) {
-	f, err := dir.Open(exampleFile)
+func parseExampleFile(dir fs.FS, dirname string) (map[string]string, error) {
+	f, err := openFile(dir, dirname, exampleFile)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %v", exampleFile, err)
 	}
@@ -183,8 +183,8 @@ func parseExamples(r io.Reader) (map[string]string, error) {
 }
 
 // Parses the verb example index file.
-func parseExampleIndexFile(dir fs.FS) (map[string][]int, error) {
-	f, err := dir.Open(exampleIndexFile)
+func parseExampleIndexFile(dir fs.FS, dirname string) (map[string][]int, error) {
+	f, err := openFile(dir, dirname, exampleIndexFile)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %v", exampleIndexFile, err)
 	}
@@ -289,10 +289,10 @@ func parseExampleIndexLine(line string) (*rawExampleIndex, error) {
 
 // ----- EXCEPTION PARSING ----------------------------------------------------
 
-func parseExceptionFiles(dir fs.FS) (map[string][]string, error) {
+func parseExceptionFiles(dir fs.FS, dirname string) (map[string][]string, error) {
 	result := map[string][]string{}
 	for file, pos := range exceptionFiles {
-		f, err := dir.Open(file)
+		f, err := openFile(dir, dirname, file)
 		if err != nil {
 			return nil, fmt.Errorf("%s: %v", file, err)
 		}
@@ -336,11 +336,11 @@ func parseExceptionFile(in io.Reader, pos string, out map[string][]string,
 // Parses all the data files and returns the 'Synset' field for the Wordnet
 // object. Path is data root directory. Example is a map from word sense to
 // example IDs.
-func parseDataFiles(dir fs.FS, examples map[string][]int) (
+func parseDataFiles(dir fs.FS, dirname string, examples map[string][]int) (
 	map[string]*Synset, error) {
 	result := map[string]*Synset{}
 	for file, pos := range dataFiles {
-		f, err := dir.Open(file)
+		f, err := openFile(dir, dirname, file)
 		if err != nil {
 			return nil, fmt.Errorf("%s: %v", file, err)
 		}

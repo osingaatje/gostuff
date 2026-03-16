@@ -49,19 +49,21 @@ import (
 	"io/fs"
 	"math"
 	"os"
+	"path/filepath"
 	"sort"
 	"strings"
 )
 
 // Parse a file path instead of a fs.FS. See ParseFS for more docs.
 func Parse(path string) (*WordNet, error) {
-	fs := os.DirFS(path)
-	return ParseFS(fs)
+	filesys := os.DirFS(path)
+	dirname := filepath.Dir(path)
+	return ParseFS(filesys, dirname)
 }
 
 // Parse parses an entire WordNet directory. Dir is the root of the directory.
 // The parser will traverse it and parse the required files, assuming the directory structure is as published.
-func ParseFS(dir fs.FS) (*WordNet, error) {
+func ParseFS(dir fs.FS, dirname string) (*WordNet, error) {
 	result := &WordNet{}
 	var err error
 
