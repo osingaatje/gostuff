@@ -46,38 +46,45 @@ package wordnet
 
 import (
 	"fmt"
+	"io/fs"
 	"math"
+	"os"
 	"sort"
 	"strings"
 )
 
-// Parse parses an entire WordNet directory. Path is the root of the directory.
-// The parser will trverse it and parse the required files, assuming
-// directory structure is as published.
+// Parse a file path instead of a fs.FS. See ParseFS for more docs.
 func Parse(path string) (*WordNet, error) {
+	fs := os.DirFS(path)
+	return ParseFS(fs)
+}
+
+// Parse parses an entire WordNet directory. Dir is the root of the directory.
+// The parser will traverse it and parse the required files, assuming the directory structure is as published.
+func ParseFS(dir fs.FS) (*WordNet, error) {
 	result := &WordNet{}
 	var err error
 
-	result.Example, err = parseExampleFile(path)
+	result.Example, err = parseExampleFile(dir)
 	if err != nil {
 		// Older versions of the database don't have examples, so skipping if
 		// not found.
 		result.Example = map[string]string{}
 	}
 
-	examples, err := parseExampleIndexFile(path)
+	examples, err := parseExampleIndexFile(dir)
 	if err != nil {
 		// Older versions of the database don't have examples, so skipping if
 		// not found.
 		examples = map[string][]int{}
 	}
 
-	result.Synset, err = parseDataFiles(path, examples)
+	result.Synset, err = parseDataFiles(dir, examples)
 	if err != nil {
 		return nil, err
 	}
 
-	result.Exception, err = parseExceptionFiles(path)
+	result.Exception, err = parseExceptionFiles(dir)
 	if err != nil {
 		// Older versions of the database don't have exceptions, so skipping if
 		// not found.
@@ -86,7 +93,7 @@ func Parse(path string) (*WordNet, error) {
 
 	result.indexLemma()
 
-	result.LemmaRanked, err = parseIndexFiles(path)
+	result.LemmaRanked, err = parseIndexFiles(dir)
 	if err != nil {
 		return nil, err
 	}

@@ -4,8 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"os"
-	"path/filepath"
+	"io/fs"
 	"strconv"
 	"strings"
 )
@@ -40,12 +39,12 @@ var (
 // ----- LEMMA INDEX PARSING --------------------------------------------------
 
 // Parses the index files.
-func parseIndexFiles(path string) (map[string][]string, error) {
+func parseIndexFiles(dir fs.FS) (map[string][]string, error) {
 	result := map[string][]string{}
 
 	for _, file := range indexFiles {
 		// Read index file.
-		f, err := os.Open(filepath.Join(path, file))
+		f, err := dir.Open(file)
 		if err != nil {
 			return nil, fmt.Errorf("%v: %v", file, err)
 		}
@@ -152,8 +151,8 @@ func parseIndexLine(line string) (*indexLine, error) {
 // ----- VERB EXAMPLE PARSING -------------------------------------------------
 
 // Parses the verb example file.
-func parseExampleFile(path string) (map[string]string, error) {
-	f, err := os.Open(filepath.Join(path, exampleFile))
+func parseExampleFile(dir fs.FS) (map[string]string, error) {
+	f, err := dir.Open(exampleFile)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %v", exampleFile, err)
 	}
@@ -184,8 +183,8 @@ func parseExamples(r io.Reader) (map[string]string, error) {
 }
 
 // Parses the verb example index file.
-func parseExampleIndexFile(path string) (map[string][]int, error) {
-	f, err := os.Open(filepath.Join(path, exampleIndexFile))
+func parseExampleIndexFile(dir fs.FS) (map[string][]int, error) {
+	f, err := dir.Open(exampleIndexFile)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %v", exampleIndexFile, err)
 	}
@@ -290,10 +289,10 @@ func parseExampleIndexLine(line string) (*rawExampleIndex, error) {
 
 // ----- EXCEPTION PARSING ----------------------------------------------------
 
-func parseExceptionFiles(path string) (map[string][]string, error) {
+func parseExceptionFiles(dir fs.FS) (map[string][]string, error) {
 	result := map[string][]string{}
 	for file, pos := range exceptionFiles {
-		f, err := os.Open(filepath.Join(path, file))
+		f, err := dir.Open(file)
 		if err != nil {
 			return nil, fmt.Errorf("%s: %v", file, err)
 		}
@@ -337,11 +336,11 @@ func parseExceptionFile(in io.Reader, pos string, out map[string][]string,
 // Parses all the data files and returns the 'Synset' field for the Wordnet
 // object. Path is data root directory. Example is a map from word sense to
 // example IDs.
-func parseDataFiles(path string, examples map[string][]int) (
+func parseDataFiles(dir fs.FS, examples map[string][]int) (
 	map[string]*Synset, error) {
 	result := map[string]*Synset{}
 	for file, pos := range dataFiles {
-		f, err := os.Open(filepath.Join(path, file))
+		f, err := dir.Open(file)
 		if err != nil {
 			return nil, fmt.Errorf("%s: %v", file, err)
 		}
